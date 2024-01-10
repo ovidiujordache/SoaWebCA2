@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\WebApiCA2.props" />
+</Project>

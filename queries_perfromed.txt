@@ -1,0 +1,67 @@
+CREATE TABLE [dbo].[HospitalityServiceProvider] (
+    [Id]        INT           NOT NULL,
+    [FirstName] NVARCHAR (50) NULL,
+    [LastName]  NVARCHAR (50) NULL,
+    [Email]     NVARCHAR (50) NULL,
+    [Password]  INT           NULL,
+    CONSTRAINT [PK_HospitalityServiceProvider] PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+CREATE TABLE [dbo].[Restaurant] (
+    [RestaurantId]      INT           NOT NULL,
+    [RestaurantName]    NVARCHAR (50) NOT NULL,
+    [RestaurantAddress] NVARCHAR (50) NULL,
+ 
+    CONSTRAINT [PK_Restaurant] PRIMARY KEY CLUSTERED ([RestaurantId] ASC),
+
+);
+
+CREATE TABLE [dbo].[FinancialTransaction] (
+    [FinancialTransactionId]    INT  IDENTITY(1,1)      NOT NULL,
+    [FinancialTransactionAmount] FLOAT (53) NOT NULL,
+    [FinancialTransactionDate]   DATETIME   NOT NULL,
+    [UserId]            INT        NOT NULL,
+
+    CONSTRAINT [PK_FTransaction] PRIMARY KEY CLUSTERED ([FinancialTransactionId] ASC),
+  
+    CONSTRAINT [FK_FTransaction_User] FOREIGN KEY (UserId) REFERENCES [dbo].[HospitalityServiceProvider](Id)
+);
+
+
+###
+MANY TO MANY RELATIONSHIP
+HospitalityServiceProvider can have many restaurants(registered to work in)
+One Restaurant has one to many HospitalityServiceProviders 
+Hence a third table to connect the two table by FOREIGN KEYS.
+ 
+ ####
+CREATE TABLE [dbo].[HSPAndRestaurant] (
+    [Id]    INT      IDENTITY(1,1)  NOT NULL,
+
+    [UserId]            INT        NOT NULL,
+    [RestaurantId]      INT        NOT NULL,
+    CONSTRAINT [PK_FTransaction] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Restaurant] FOREIGN KEY (RestaurantId) REFERENCES [dbo].[Restaurant](RestaurantId),
+    CONSTRAINT [FK_HSP] FOREIGN KEY (UserId) REFERENCES [dbo].[HospitalityServiceProvider](Id)
+    )
+    CONSTRAINT [FK_HSP] FOREIGN KEY (UserId) REFERENCES [dbo].[](Id)
+###
+ONE TO MANY RELATIONSHIP
+One HospitalityServiceProvider has one or many financial Transactions.
+One Financial Transaction belongs to one HopitalityServiceProvider
+No need for a Join Table
+It can be stored in FinancialTransaction table as FOREIGN KEY .
+###
+
+
+INSERT INTO dbo.[Restaurant]
+(RestaurantName,RestaurantAddress)
+VALUES
+('Abcd Restaurant','12 Main Street'),
+('XYZ Restaurant','12 Secondary Street')
+;
+
+
+
+
+
+Server=tcp:so-ca2-server.database.windows.net,1433;Initial Catalog=soa-ca2-db;Persist Security Info=False;User ID=soa-ca2-server-admin;Password=XXXXXXX;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;

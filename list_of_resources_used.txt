@@ -1,0 +1,24 @@
+CONSUMING A WEB SERVICE API IN MAUI
+https://learn.microsoft.com/en-us/dotnet/maui/data-cloud/rest?view=net-maui-8.0
+
+NETWORK SECURITY ANDROID bind localhost WEBAPi endpoint to Android emulator ip address
+https://learn.microsoft.com/en-us/dotnet/maui/data-cloud/local-web-services?view=net-maui-8.0
+
+
+consume REST web services in MAUI
+https://learn.microsoft.com/en-us/dotnet/maui/data-cloud/rest?view=net-maui-8.0
+
+foreign keys in collection 
+https://learn.microsoft.com/en-us/ef/core/modeling/relationships/foreign-and-principal-keys#foreign-keys
+
+
+Adding automapper for DTO
+
+https://docs.automapper.org/en/stable/
+
+MANY TO MANY RELATIONSHIP
+
+https://learn.microsoft.com/en-us/ef/core/modeling/relationships/many-to-many
+
+one to many relationship API endpoints
+https://learn.microsoft.com/en-us/ef/core/modeling/relationships/navigations#reference-navigations
